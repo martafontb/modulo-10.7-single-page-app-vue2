@@ -5,11 +5,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    clientslist: [
+      {id: 1, name: 'Pablo Casas'},
+      {id: 2, name: 'Jake Lucas'},
+      {id: 3, name: 'Alice Lowe'}
+    ]
   },
-  mutations: {
+  getters: {
+    clientslist: state => {
+      return state.clientslist;
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
+    client: state => (id) => {
+      return state.clientslist.find(client => client.id === id);
+    }
 })
